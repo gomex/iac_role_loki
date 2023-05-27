@@ -3,4 +3,4 @@
 - name: Restart loki
   systemd:
     name: docker-compose@loki
-    state: restart
+    state: restarted
