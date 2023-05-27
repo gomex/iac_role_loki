@@ -9,7 +9,7 @@
 - name: Copiar arquivo
   copy:
     src: docker-compose.yml
-    dest: /etc/docker/compose/loki/docker-compose.yml
+    dest: /etc/docker/compose/loki/docker-compose.yaml
   notify:
     - Restart loki
 
