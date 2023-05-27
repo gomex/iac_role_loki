@@ -1,0 +1,21 @@
+---
+# tasks file for iac_role_loki
+- name: Create docker compose folder
+  file:
+    path: /etc/docker/compose/loki
+    state: directory
+    mode: 0750
+
+- name: Copiar arquivo
+  copy:
+    src: docker-compose.yml
+    dest: /etc/docker/compose/loki/docker-compose.yml
+  notify:
+    - Restart loki
+
+- name: Copiar arquivo
+  copy:
+    src: docker-compose@.service
+    dest: /etc/systemd/system/docker-compose@.service
+  notify:
+    - Restart loki

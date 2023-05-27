@@ -1,0 +1,6 @@
+---
+# handlers file for iac_role_loki
+- name: Restart loki
+  systemd:
+    name: docker-compose@loki
+    state: restart
