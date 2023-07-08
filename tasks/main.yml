@@ -18,4 +18,11 @@
     src: docker-compose@.service
     dest: /etc/systemd/system/docker-compose@.service
   notify:
+    - Systemd daemon reload
     - Restart loki
+
+- name: Habilitar o serviço para iniciar no startup da maquina
+  ansible.builtin.systemd:
+    name: docker-compose@loki
+    state: started
+    enabled: true
